@@ -8,7 +8,7 @@ datasources:
     access: proxy
     url: https://localhost:9200
     password: ''
-    user: ''
+    user: 'admin'
     database: pscheduler_*
     basicAuth: false
     isDefault: false
@@ -28,7 +28,7 @@ datasources:
     access: proxy
     url: https://localhost:9200
     password: ''
-    user: ''
+    user: 'admin'
     database: "[pscheduler_latencybg-]YYYY.MM.DD"
     basicAuth: false
     isDefault: false
@@ -49,7 +49,7 @@ datasources:
     access: proxy
     url: https://localhost:9200
     password: ''
-    user: ''
+    user: 'admin'
     database: "[pscheduler_rtt-]YYYY.MM.DD"
     basicAuth: false
     isDefault: false
@@ -69,7 +69,7 @@ datasources:
     access: proxy
     url: https://localhost:9200
     password: ''
-    user: ''
+    user: 'admin'
     database: "[pscheduler_throughput-]YYYY.MM.DD"
     basicAuth: false
     isDefault: true
@@ -90,7 +90,7 @@ datasources:
     access: proxy
     url: https://localhost:9200
     password: ''
-    user: ''
+    user: 'admin'
     database: "[pscheduler_trace-]YYYY.MM.DD"
     basicAuth: false
     isDefault: false

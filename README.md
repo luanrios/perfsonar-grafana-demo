@@ -29,13 +29,19 @@ yum update -y
 yum install grafana -y
 ```
 
-2. Datasources
+2. Auth
+```bash
+pass=$(cat /etc/perfsonar/elastic/auth_setup.out | grep admin | cut -d " " -f 2)
+sed 's/password: \'\'/password: \'$pass\'/g' datasources.yml
+```
+
+3. Datasources
 ```bash
 cp datasources.yml /etc/grafana/provisioning/datasources
 chown grafana:grafana /etc/grafana/provisioning/datasources/datasources.yml
 ```
 
-3. Dashboards
+4. Dashboards
 ```bash
 cp dashboard-providers.yml /etc/grafana/provisioning/dashboards
 chown grafana:grafana /etc/grafana/provisioning/dashboards/dashboard-providers.yml
