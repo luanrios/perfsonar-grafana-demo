@@ -28,3 +28,17 @@ cp grafana.repo /etc/yum.repos.d/grafana.repo
 yum update -y
 yum install grafana -y
 ```
+
+2. Datasources
+```bash
+cp datasources.yml /etc/grafana/provisioning/datasources
+chown grafana:grafana /etc/grafana/provisioning/datasources/datasources.yml
+```
+
+3. Dashboards
+```bash
+cp dashboard-providers.yml /etc/grafana/provisioning/dashboards
+chown grafana:grafana /etc/grafana/provisioning/dashboards/dashboard-providers.yml
+cp -r dashboards /var/lib/grafana
+chown -R grafana:grafana /var/lib/grafana/dashboards
+```
