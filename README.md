@@ -32,7 +32,7 @@ yum install grafana -y
 2. Auth
 ```bash
 pass=$(cat /etc/perfsonar/elastic/auth_setup.out | grep admin | cut -d " " -f 2)
-sed 's/password: \'\'/password: \'$pass\'/g' datasources.yml
+sed -i "s/password: ''/password: '$pass'/g' datasources.yml
 ```
 
 3. Datasources
