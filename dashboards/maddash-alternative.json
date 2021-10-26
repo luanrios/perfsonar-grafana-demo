@@ -1,0 +1,419 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "iteration": 1591841035421,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "panels": [],
+      "repeat": "source",
+      "scopedVars": {
+        "source": {
+          "selected": false,
+          "text": "ps-dev-docker-1.es.net",
+          "value": "ps-dev-docker-1.es.net"
+        }
+      },
+      "title": "$source",
+      "type": "row"
+    },
+    {
+      "datasource": "pScheduler Throughput",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background",
+            "width": 100
+          },
+          "mappings": [
+            {
+              "from": "-10",
+              "id": 0,
+              "operator": "",
+              "text": "No tests",
+              "to": "0",
+              "type": 2,
+              "value": "-1"
+            }
+          ],
+          "noValue": "No tests",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-orange",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 100000000
+              },
+              {
+                "color": "dark-green",
+                "value": 500000000
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 10,
+      "interval": "365d",
+      "maxDataPoints": 1,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.0.0",
+      "scopedVars": {
+        "source": {
+          "selected": false,
+          "text": "ps-dev-docker-1.es.net",
+          "value": "ps-dev-docker-1.es.net"
+        }
+      },
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:708",
+              "fake": true,
+              "field": "meta.destination.hostname.keyword",
+              "id": "3",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "asc",
+                "orderBy": "_term",
+                "size": "0"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
+              "field": "pscheduler.start_time",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "$$hashKey": "object:598",
+              "field": "result.throughput",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "avg"
+            }
+          ],
+          "query": "(meta.source.hostname.keyword:$source) AND (!test.spec.udp:true)",
+          "refId": "A",
+          "timeField": "pscheduler.start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 11,
+      "panels": [],
+      "repeat": null,
+      "repeatIteration": 1591841035421,
+      "repeatPanelId": 7,
+      "scopedVars": {
+        "source": {
+          "selected": false,
+          "text": "ps-dev-el7-1.es.net",
+          "value": "ps-dev-el7-1.es.net"
+        }
+      },
+      "title": "$source",
+      "type": "row"
+    },
+    {
+      "datasource": "pScheduler Throughput",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "displayMode": "color-background",
+            "width": 100
+          },
+          "mappings": [
+            {
+              "from": "-10",
+              "id": 0,
+              "operator": "",
+              "text": "No tests",
+              "to": "0",
+              "type": 2,
+              "value": "-1"
+            }
+          ],
+          "noValue": "No tests",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-orange",
+                "value": null
+              },
+              {
+                "color": "dark-red",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 100000000
+              },
+              {
+                "color": "dark-green",
+                "value": 500000000
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 12,
+      "interval": "48h",
+      "maxDataPoints": 1,
+      "options": {
+        "showHeader": true
+      },
+      "pluginVersion": "7.0.0",
+      "repeatIteration": 1591841035421,
+      "repeatPanelId": 10,
+      "repeatedByRow": true,
+      "scopedVars": {
+        "source": {
+          "selected": false,
+          "text": "ps-dev-el7-1.es.net",
+          "value": "ps-dev-el7-1.es.net"
+        }
+      },
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "$$hashKey": "object:708",
+              "fake": true,
+              "field": "meta.destination.hostname.keyword",
+              "id": "3",
+              "settings": {
+                "min_doc_count": 0,
+                "order": "asc",
+                "orderBy": "_term",
+                "size": "0"
+              },
+              "type": "terms"
+            },
+            {
+              "$$hashKey": "object:600",
+              "field": "pscheduler.start_time",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "$$hashKey": "object:598",
+              "field": "result.throughput",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "avg"
+            }
+          ],
+          "query": "(meta.source.hostname.keyword:$source) AND (!test.spec.udp:true)",
+          "refId": "A",
+          "timeField": "pscheduler.start_time"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transformations": [
+        {
+          "id": "seriesToColumns",
+          "options": {}
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "schemaVersion": 25,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "pScheduler Throughput",
+        "definition": "{\"find\":\"terms\", \"field\":\"meta.source.hostname.keyword\", \"size\": 100000} ",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Source",
+        "multi": true,
+        "name": "source",
+        "options": [],
+        "query": "{\"find\":\"terms\", \"field\":\"meta.source.hostname.keyword\", \"size\": 100000} ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": "",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "pScheduler Throughput",
+        "definition": "{\"find\":\"terms\", \"field\":\"meta.destination.hostname.keyword\", \"size\": 100000} ",
+        "hide": 2,
+        "includeAll": true,
+        "label": "Destination",
+        "multi": true,
+        "name": "dest",
+        "options": [],
+        "query": "{\"find\":\"terms\", \"field\":\"meta.destination.hostname.keyword\", \"size\": 100000} ",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "MaDDash Alternative",
+  "uid": "0yMs1AgGk"
+}
